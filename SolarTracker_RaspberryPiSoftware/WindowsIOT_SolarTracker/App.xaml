@@ -1,0 +1,8 @@
+﻿<Application
+    x:Class="WindowsIOT_SolarTracker.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WindowsIOT_SolarTracker"
+    RequestedTheme="Light">
+
+</Application>

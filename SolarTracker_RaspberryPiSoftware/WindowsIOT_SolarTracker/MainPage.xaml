@@ -1,0 +1,172 @@
+﻿<Page
+    x:Class="WindowsIOT_SolarTracker.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WindowsIOT_SolarTracker"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel>
+            <Grid x:Name="titleLineGrid" Margin="100, 0, 0, 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="200"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0"
+                           FontFamily="Century Gothic" 
+                           FontSize="50" 
+                           FontWeight="Bold" 
+                           Margin="100, 30, 0, 0" 
+                           TextAlignment="Center">Windows IoT Solar Tracker
+                </TextBlock>
+                <!-- Place for power button (Not Currently Active in Win 10 IoT)
+                <Button Grid.Column="1"
+                        Height="50"
+                        Width="auto"
+                        Margin="700, 0, 0, 0"
+                        x:Name="powerButton"
+                        Click="powerButton_Click"
+                        Content="Power"
+                        Background="LightGray"
+                        Foreground="Black"
+                        FontSize="20"
+                        FontWeight="Bold">                    
+                </Button>
+                -->
+            </Grid>
+            <TextBlock FontFamily="Century Gothic" FontSize="32" FontWeight="Bold" Margin="100, 10, 0, 0">Output Data</TextBlock>
+            <Grid x:Name="dataViewGrid" Margin="100, 0, 845, 50">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                
+                <TextBlock FontFamily="Century Gothic" FontSize="24" FontWeight="Bold" Grid.Row="0" Grid.Column="2">Output RAW</TextBlock>
+                <TextBlock FontFamily="Century Gothic" FontSize="24" FontWeight="Bold" Grid.Row="0" Grid.Column="1">Output Calculated</TextBlock>
+                <TextBlock FontFamily="Century Gothic" FontSize="24" FontWeight="Bold" Grid.Row="1" Grid.Column="0">CH0 - Solar (Volts)</TextBlock>
+                <TextBlock FontFamily="Century Gothic" FontSize="24" FontWeight="Bold" Grid.Row="2" Grid.Column="0">CH1 - Battery (Volts)</TextBlock>
+                <TextBlock FontFamily="Century Gothic" FontSize="24" FontWeight="Bold" Grid.Row="3" Grid.Column="0">CH2 - Current (mA)</TextBlock>
+                <TextBlock FontFamily="Century Gothic" FontSize="24" FontWeight="Bold" Grid.Row="4" Grid.Column="0">Watts</TextBlock>
+                <TextBlock FontFamily="Century Gothic" FontSize="24" FontWeight="Bold" Grid.Row="5" Grid.Column="0">Watt Hours</TextBlock>
+                <TextBlock FontFamily="Century Gothic" FontSize="22" x:Name="CH0_DataRaw" Grid.Row="1" Grid.Column="2">CH0 RAW</TextBlock>
+                <TextBlock FontFamily="Century Gothic" FontSize="22" x:Name="CH0_DataCal" Grid.Row="1" Grid.Column="1">CH0 CAL</TextBlock>
+                <TextBlock FontFamily="Century Gothic" FontSize="22" x:Name="CH1_DataRaw" Grid.Row="2" Grid.Column="2">CH1 RAW</TextBlock>
+                <TextBlock FontFamily="Century Gothic" FontSize="22" x:Name="CH1_DataCal" Grid.Row="2" Grid.Column="1">CH1 CAL</TextBlock>
+                <TextBlock FontFamily="Century Gothic" FontSize="22" x:Name="CH2_DataRaw" Grid.Row="3" Grid.Column="2">CH2 RAW</TextBlock>
+                <TextBlock FontFamily="Century Gothic" FontSize="22" x:Name="CH2_DataCal" Grid.Row="3" Grid.Column="1">CH2 CAL</TextBlock>
+                <TextBlock FontFamily="Century Gothic" FontSize="22" x:Name="wattsOut" Grid.Row="4" Grid.Column="1">Watts Out</TextBlock>
+                <TextBlock FontFamily="Century Gothic" FontSize="22" x:Name="wattHours" Grid.Row="5" Grid.Column="1">Watt Hours</TextBlock>
+            </Grid>
+
+            <Grid x:Name="ControlsGrid" Margin="100, 10, 0, 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="610"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="1">
+                    <TextBlock FontSize="24" Margin="50, 0, 0, 0" x:Name="timeText">Time and Date</TextBlock>
+                    <TextBlock FontSize="24" Margin="50, 10, 0, 0" x:Name="uptimeText">Uptime</TextBlock>
+                    <TextBlock FontFamily="Century Gothic" FontSize="26" FontWeight="Bold" Margin="50, 50, 0, 0">Output Consoles</TextBlock>
+                    <Grid x:Name="outputGrid" Margin="50, 0, 0, 0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Grid.Row="0"
+                    		FontFamily="Century Gothic" 
+                    		FontSize="24" 
+                    		x:Name="errorTextBox" 
+                    		Margin="50, 10, 0, 0">
+                    		<Run Text="Error Text Box"/>
+                        </TextBlock>
+
+                        <TextBlock Grid.Row="1"
+                    		FontFamily="Century Gothic"
+                    		FontSize="24"
+                    		x:Name="outputTextBox"
+                    		Margin="50, 10, 0, 0">
+                    		<Run Text="Stats Output Text Box"/>
+                        </TextBlock>
+
+                    </Grid>
+                </StackPanel>
+
+                <StackPanel Grid.Column="0">
+                    <Button x:Name="KILL" Click="KILL_Click" Height="auto" Width="600" Margin="0, 0, 0, 0" 
+                    Background="Red" 
+                    Foreground="White" 
+                    Content="KILL" 
+                    FontFamily="Century Gothic" 
+                    FontWeight="ExtraBold" 
+                    FontSize="30">
+                    </Button>
+                    <Button x:Name="RESUME" Click="RESUME_Click" Height="auto" Width="600" Margin="0, 10, 0, 0"
+                    Background="Green"
+                    Foreground="White"
+                    Content="RESUME"
+                    FontFamily="Century Gothic"
+                    FontSize="30"
+                    FontWeight="Bold">
+                    </Button>
+                    <Button x:Name="FORCEPOS_H" Click="FORCEPOS_H_Click" Height="auto" Width="600" Margin="0, 10, 0, 0"
+                    Background="Orange"
+                    Foreground="White"
+                    Content="FORCE HOROZONTAL POS"
+                    FontFamily="Century Gothic"
+                    FontSize="30"
+                    FontWeight="Bold">
+                    </Button>
+                    <Slider x:Name="ForceHSilder"
+                    Width="600"
+                    HorizontalAlignment="Left"
+                    Margin="0, 10, 0, 0"
+                    Minimum="0"
+                    Maximum="180"
+                    TickFrequency="10"
+                    TickPlacement="BottomRight"
+                    ValueChanged="ForceHSilder_ValueChanged">
+                    </Slider>
+                    <Button x:Name="FORCEPOS_V" Click="FORCEPOS_V_Click" Height="auto" Width="600" Margin="0, 10, 0, 0"
+                    Background="Orange"
+                    Foreground="White"
+                    Content="FORCE VERTICAL POS"
+                    FontFamily="Century Gothic"
+                    FontSize="30"
+                    FontWeight="Bold">
+                    </Button>
+                    <Slider x:Name="ForceVSilder"
+                    Width="600"
+                    HorizontalAlignment="Left"
+                    Margin="0, 10, 0, 0"
+                    Minimum="0"
+                    Maximum="180"
+                    TickFrequency="10"
+                    TickPlacement="BottomRight"
+                    ValueChanged="ForceVSilder_ValueChanged">
+                    </Slider>
+                    <Button x:Name="HOME" Click="HOME_Click" Height="auto" Width="600" Margin="0, 10, 0, 0"
+                    Background="Blue"
+                    Foreground="White"
+                    Content="HOME SERVOS"
+                    FontFamily="Century Gothic"
+                    FontSize="30"
+                    FontWeight="Bold">
+                    </Button>
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Page>

@@ -1,0 +1,10 @@
+C:\Users\jedho\documents\visual studio 2015\Projects\WindowsIOT_SolarTracker\WindowsIOT_SolarTracker\obj\x64\Debug\App.g.i.cs
+C:\Users\jedho\documents\visual studio 2015\Projects\WindowsIOT_SolarTracker\WindowsIOT_SolarTracker\obj\x64\Debug\App.g.cs
+C:\Users\jedho\documents\visual studio 2015\Projects\WindowsIOT_SolarTracker\WindowsIOT_SolarTracker\obj\x64\Debug\MainPage.g.i.cs
+C:\Users\jedho\documents\visual studio 2015\Projects\WindowsIOT_SolarTracker\WindowsIOT_SolarTracker\obj\x64\Debug\MainPage.g.cs
+C:\Users\jedho\documents\visual studio 2015\Projects\WindowsIOT_SolarTracker\WindowsIOT_SolarTracker\obj\x64\Debug\XamlTypeInfo.g.cs
+C:\Users\jedho\documents\visual studio 2015\Projects\WindowsIOT_SolarTracker\WindowsIOT_SolarTracker\obj\x64\Debug\App.xaml
+C:\Users\jedho\documents\visual studio 2015\Projects\WindowsIOT_SolarTracker\WindowsIOT_SolarTracker\obj\x64\Debug\MainPage.xaml
+C:\Users\jedho\documents\visual studio 2015\Projects\WindowsIOT_SolarTracker\WindowsIOT_SolarTracker\obj\x64\Debug\App.xbf
+C:\Users\jedho\documents\visual studio 2015\Projects\WindowsIOT_SolarTracker\WindowsIOT_SolarTracker\obj\x64\Debug\MainPage.xbf
+C:\Users\jedho\documents\visual studio 2015\Projects\WindowsIOT_SolarTracker\WindowsIOT_SolarTracker\obj\x64\Debug\XamlSaveStateFile.xml

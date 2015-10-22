@@ -1,6 +1,6 @@
 ﻿/*
     Windows IoT Solar Tracker with Live Data Feed - Main Program
-    Released under GNU GENERAL PUBLIC LICENSE
+    Released under GNU GENERAL PUBLIC LICENSE VERSION 3+
 
     Full project details available on Hackster.io
 
